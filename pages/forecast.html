@@ -12,14 +12,8 @@
     <div ng-repeat="forecast in weatherResult.list">
         <div class="row">
             <div class="col-md-12">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">{{convertToDate(forecast.dt) | date:'mediumDate'}}</h3>
-                    </div>
-                    <div class="panel-body">
-                        Daytime temperature: {{convertToCelsius(forecast.temp.day)}} &deg;C
-                    </div>
-                </div>
+                <day-forecast weather-result="forecast" convert-to-standard="convertToCelsius(daytimeTemp)"
+                              convert-to-date="convertToDate(dt)" date-format="mediumDate"></day-forecast>
             </div>
         </div>
     </div>
