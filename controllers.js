@@ -1,5 +1,5 @@
 // CONTROLLERS
-weatherApp.controller('homeController', ['$scope', '$log', 'cityService', function ($scope, $log, cityService) {
+weatherApp.controller('homeController', ['$scope', '$log', '$location', 'cityService', function ($scope, $log, $location, cityService) {
     $log.info('in home controller');
 
     $scope.city = cityService.city;
@@ -7,6 +7,10 @@ weatherApp.controller('homeController', ['$scope', '$log', 'cityService', functi
     $scope.$watch('city', function () {
         cityService.city = $scope.city;
     });
+
+    $scope.submit = function(){
+        $location.path("/forecast");
+    }
 
     $log.info($scope.city);
 }]);
